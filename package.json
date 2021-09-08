@@ -9,6 +9,9 @@
     "devDependencies": {
         "@microsoft/teamsfx-cli": "0.*"
     },
+    "engines": {
+        "node": "14.x"
+    },
     "license": "MIT",
     "dependencies": {
         "@fluentui/react": "^8.30.3",
