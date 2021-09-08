@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ff914d;
+  padding-bottom: 10%;
+}
+.header {
+  justify-content: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 2%;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+}
+.div-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 5%;
+}
+.button-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+a {
+  text-decoration: none;
+  color: white;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+a:hover h1 {
+  color: #ff7f00;
+}
+
+a:hover {
+  color: #ff7f00;
+}
+
+.test-row {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+  text-align: center;
+  min-width: 70vw;
+  min-height: 32vw;
+  align-self: center;
+}
+.test-link {
+  padding: 10%;
+  border: 10px solid #365173;
+  border-radius: 25px;
+  max-width: 50%;
+  min-width: 50%;
+  margin: 10px;
+  background-color: #365173;
+}
+h1 {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+@media only screen and (max-width: 350px) {
+  h1 {
+    font-size: x-small;
+    font-weight: lighter;
+  }
+}
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: medium;
+    font-weight: lighter;
+  }
+  .button-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .test-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    max-width: 100%;
+    align-self: center;
+  }
+}
