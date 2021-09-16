@@ -6,7 +6,7 @@
     "packageName": "com.microsoft.teams.extension",
     "developer": {
         "name": "Teams App, Inc.",
-        "websiteUrl": "{baseUrl}",
+        "websiteUrl": "https://bmore.deskdirector.com/",
         "privacyUrl": "{baseUrl}/index.html#/privacy",
         "termsOfUseUrl": "{baseUrl}/index.html#/termsofuse"
     },
@@ -15,12 +15,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "bmoreTech",
-        "full": "This field is not used"
+        "short": "Bmore Technology",
+        "full": "Bmore Technology"
     },
     "description": {
         "short": "Short description of bmoreTech.",
-        "full": "Full description of bmoreTech."
+        "full": "Remote Support Microsoft Teams App for Bmore Technology."
     },
     "accentColor": "#FFFFFF",
     "bots": [],
@@ -38,9 +38,9 @@
     "staticTabs": [
         {
             "entityId": "index",
-            "name": "Personal Tab",
-            "contentUrl": "{baseUrl}/index.html#/tab",
-            "websiteUrl": "{baseUrl}/index.html#/tab",
+            "name": "Care Center",
+            "contentUrl": "https://bmore.deskdirector.com/",
+            "websiteUrl": "https://bmore.deskdirector.com/",
             "scopes": [
                 "personal"
             ]

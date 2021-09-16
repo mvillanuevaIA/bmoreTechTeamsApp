@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // https://fluentsite.z22.web.core.windows.net/quick-start
 import { Provider, teamsTheme } from "@fluentui/react-northstar";
 import { useTeamsFx } from "./sample/lib/useTeamsFx";
-
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import { Image } from "@fluentui/react-northstar";
-import banner from "./assets/banner.png";
-import {
-  ChatIcon,
-  SendIcon,
-  NumberListIcon,
-  DoorArrowLeftIcon,
-} from "@fluentui/react-icons-northstar";
+import { Breadcrumb } from "@fluentui/react-northstar";
+import CareCenter from "./CareCenter.jsx";
+import CareCenter2 from "./CareCenter2.jsx";
+import SupportFrame from "./SupportFrame";
 
 /**
  * The main app which handles the initialization and routing
@@ -20,61 +16,55 @@ import {
 
 export default function App() {
   const { theme, loading } = useTeamsFx();
-  return (
+  const [page, setPage] = useState("Care Center");
+  const [url, setURL] = useState("");
+  const getURL = (url, page) => {
+    setPage(page);
+    setURL(url);
+  };
+
+  const careCenter = (
     <Provider
       theme={theme || teamsTheme}
       styles={{ backgroundColor: "#eeeeee" }}
     >
-      <div class="page-container">
-        <div class="header">
-          <Image fluid src={banner}></Image>
-        </div>
-
-        <div class="test-row">
-          <a
-            class="test-link"
-            href="https://bmore.connectboosterportal.com/authentication/login"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <h1>
-              Chat with <br />a<br /> Technician
-            </h1>
-            <ChatIcon size="largest" />
-          </a>
-
-          <a
-            class="test-link"
-            href="https://bmore.connectboosterportal.com/authentication/login"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <h1>Create new Ticket</h1>
-            <SendIcon size="largest" />
-          </a>
-        </div>
-
-        <div class="test-row">
-          <a
-            class="test-link"
-            href="https://bmore.connectboosterportal.com/authentication/login"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <h1>My Tickets</h1>
-            <NumberListIcon size="largest" />
-          </a>
-          <a
-            class="test-link"
-            href="https://bmore.connectboosterportal.com/authentication/login"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <h1>Payment Portal</h1>
-            <DoorArrowLeftIcon size="largest" />
-          </a>
-        </div>
+      <div className="nav">
+        <Breadcrumb aria-label="breadcrumb">
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="">
+              <h5>Care Center</h5>
+            </Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Divider />
+          <Breadcrumb.Item>
+            {page === "Care Center" ? "" : page}
+          </Breadcrumb.Item>
+        </Breadcrumb>
       </div>
+
+      {/*Display the button link in an iFrame on click, else display Care Center Buttons  */}
+      {page === "Care Center" ? (
+        <CareCenter2 sendURL={getURL} />
+      ) : (
+        <SupportFrame site={page} siteURL={url} />
+      )}
     </Provider>
+  );
+
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/index.html/">
+          {careCenter}
+          {/* <SupportFrame
+            site="Care Center"
+            siteUrl="https://bmore.deskdirector.com/"
+          /> */}
+        </Route>
+        <Route path="/index.html/tab2">
+          <CareCenter />
+        </Route>
+      </Switch>
+    </div>
   );
 }
